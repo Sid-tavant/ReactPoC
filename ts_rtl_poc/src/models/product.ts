@@ -7,12 +7,12 @@ class Product {
   constructor(
     productName: string = "Undefined",
     productQty: number = 0,
-    productPrice: number = 0
+    productPrice: number = 0.0
   ) {
     this.id = new Date().toISOString();
     this.name = productName;
     this.quantity = productQty;
-    this.price = productQty;
+    this.price = productPrice;
   }
 }
 

@@ -13,21 +13,21 @@ const AddProduct: React.FC<{ onAddProd: (newProduct: Product) => void }> = (
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
-    const enteredName = prodNameInputRef.current!.value;
+    const enteredName: string = prodNameInputRef.current!.value;
 
     if (enteredName.trim().length === 0) {
       alert("Please enter a valid name");
       return;
     }
 
-    const enteredQty = parseInt(prodQtyInputRef.current!.value);
+    const enteredQty: number = parseInt(prodQtyInputRef.current!.value);
 
     if (enteredQty <= 0 || isNaN(enteredQty)) {
       alert("Quantity cannot be zero or less than zero");
       return;
     }
 
-    const enteredPrice = parseFloat(prodPriceInputRef.current!.value);
+    const enteredPrice: number = parseFloat(prodPriceInputRef.current!.value);
 
     if (enteredPrice <= 0 || isNaN(enteredPrice)) {
       alert("Price cannot be zero or negative");
@@ -38,6 +38,7 @@ const AddProduct: React.FC<{ onAddProd: (newProduct: Product) => void }> = (
     // console.log("Product Name:", enteredName);
     // console.log("Product Quantity", enteredQty);
     // console.log("Product Price($):", enteredPrice);
+
     props.onAddProd(new Product(enteredName, enteredQty, enteredPrice));
   };
 
